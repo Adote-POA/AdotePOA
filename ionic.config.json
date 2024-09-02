@@ -1,0 +1,7 @@
+{
+  "name": "AdotePOA",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
