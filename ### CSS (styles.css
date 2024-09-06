@@ -1,0 +1,61 @@
+### CSS (styles.css)
+css
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.logo {
+    height: 100px;
+}
+
+main {
+    padding: 20px;
+}
+
+.sobre-nos h1 {
+    font-size: 24px;
+    color: #7bc74d;
+}
+
+.sobre-nos p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.email {
+    font-weight: bold;
+}
+
+.email a {
+    color: #7bc74d;
+    text-decoration: none;
+}
+
+footer {
+    padding: 20px 0;
+    background-color: #fff;
+}
+
+.social-icons img {
+    width: 40px;
+    margin: 0 10px;
+}
