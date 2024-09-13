@@ -1,16 +1,16 @@
 <app-header>
-  
 </app-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Login</ion-title>
-    </ion-toolbar>
-  </ion-header> 
+  <h1 class="l">Login</h1>
 
-  <div id="container">
-    <strong class="capitalize">Login</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="container">
+    <ion-input label="Usuario" labelPlacement="floating" fill="solid" placeholder=""></ion-input>
+    <br />
+    <ion-input type="password" label="Senha" label-placement="floating" fill="solid">
+      
+    </ion-input>
+    <!-- <ion-input label="Senha" label-placement="floating" fill="outline" placeholder=""></ion-input> -->
+    <ion-button class="btn-login">OK</ion-button>
   </div>
 </ion-content>
