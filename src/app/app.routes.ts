@@ -4,6 +4,7 @@ import { CadastrarAnimalComponent } from './components/cadastrar-animal/cadastra
 import { LoginComponent } from './components/login/login.component';
 import { SejaVoluntarioComponent } from './components/seja-voluntario/seja-voluntario.component';
 import { SobreNosComponent } from './components/sobre-nos/sobre-nos.component';
+import { InformacoesPetComponent } from './components/informacoes-pet/informacoes-pet.component';
 
 export const routes: Routes = [
   {
@@ -26,5 +27,9 @@ export const routes: Routes = [
   {
     path: 'sobre-nos',
     component: SobreNosComponent
+  },
+  {
+    path: 'informacoes-pet/:petId',
+    component: InformacoesPetComponent
   },
 ];

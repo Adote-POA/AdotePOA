@@ -1,0 +1,15 @@
+:host{
+    width: 75%;
+    display: flex;
+}
+ion-card{
+    border-radius: 10px;
+}
+img{
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+ion-card-title{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
