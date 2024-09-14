@@ -1,0 +1,28 @@
+ion-content {
+  display: flex;
+  justify-content: center; // Centraliza horizontalmente
+  align-items: flex-start; // Começa o alinhamento dos itens no topo
+  height: 100vh; // Define a altura total da tela
+  padding: 16px; // Mantém o espaçamento interno
+  overflow: hidden; // Evita rolagem
+
+  .form-container {
+    width: 100%; // Faz a div ocupar toda a largura possível
+    max-width: 400px; // Define uma largura máxima para a div
+    margin-top: 100px; // Adiciona um espaçamento superior para mover o conteúdo mais para baixo
+    text-align: center; // Centraliza o texto do título
+    box-sizing: border-box; // Inclui padding e border na largura e altura total
+
+    h2 {
+      margin-bottom: 50px; // Move o cabeçalho mais para cima usando margem negativa
+    }
+
+    ion-item {
+      margin-bottom: 20px; // Adiciona espaçamento inferior entre as caixas de entrada
+    }
+
+    ion-button {
+      margin-top: 70px; // Mantém o espaçamento maior entre o último campo e o botão
+    }
+  }
+}

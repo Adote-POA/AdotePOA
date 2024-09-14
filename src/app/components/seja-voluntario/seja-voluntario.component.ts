@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent, IonList, IonInput, IonItem, IonBackButton, IonLabel, IonButton, IonCheckbox } from '@ionic/angular/standalone';
 import { HeaderComponent } from '../header/header.component';
 import { addIcons } from "ionicons";
 
@@ -8,7 +8,7 @@ import { addIcons } from "ionicons";
   selector: 'app-seja-voluntario',
   templateUrl: './seja-voluntario.component.html',
   styleUrls: ['./seja-voluntario.component.scss'],
-  imports: [HeaderComponent, IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent],
+  imports: [IonCheckbox, IonButton, IonLabel, IonBackButton, IonItem, IonInput, IonList, HeaderComponent, IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent],
 
 })
 export class SejaVoluntarioComponent  implements OnInit {

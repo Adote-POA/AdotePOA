@@ -3,14 +3,37 @@
 </app-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Seja Voluntário</ion-title>
-    </ion-toolbar>
-  </ion-header> 
 
-  <div id="container">
-    <strong class="capitalize">Seja Voluntário</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+
+  <ion-content class="ion-padding">
+    <div class="form-container">
+      <h2>SEJA VOLUNTÁRIO</h2>
+      
+      <ion-item>
+        <ion-label position="stacked">Nome:</ion-label>
+        <ion-input type="text" placeholder="Digite seu nome"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="stacked">Telefone:</ion-label>
+        <ion-input type="tel" placeholder="Digite seu telefone"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="stacked">E-mail:</ion-label>
+        <ion-input type="email" placeholder="Digite seu e-mail"></ion-input>
+      </ion-item>
+      
+      <!-- <ion-item>
+        <ion-label position="stacked">Opções:</ion-label>
+        <ion-select placeholder="Selecione uma opção">
+          <ion-select-option value="opcao1">Opção 1</ion-select-option>
+          <ion-select-option value="opcao2">Opção 2</ion-select-option>
+          <ion-select-option value="opcao3">Opção 3</ion-select-option>
+        </ion-select>
+      </ion-item> -->
+      
+
+      <ion-button shape="round" expand="block" color="success">Enviar</ion-button>
+    </div>
+  </ion-content>

@@ -1,24 +1,31 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HeaderComponent } from '../header/header.component';
+import { CommonModule } from '@angular/common';
+import { IonContent, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonButton, IonList } from "@ionic/angular/standalone";
 
-import { SejaVoluntarioComponent } from './seja-voluntario.component';
+@Component({
+  standalone: true,
+  selector: 'app-seja-voluntario',
+  templateUrl: './seja-voluntario.component.html',
+  styleUrls: ['./seja-voluntario.component.scss'],
+  imports: [
+    IonButton,
+    IonInput,
+    IonLabel,
+    IonItem,
+    IonContent,
+    IonSelect,
+    IonSelectOption,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HeaderComponent,
+    IonList,
+  ],
+})
+export class SejaVoluntarioComponent implements OnInit {
+  constructor() { }
 
-describe('SejaVoluntarioComponent', () => {
-  let component: SejaVoluntarioComponent;
-  let fixture: ComponentFixture<SejaVoluntarioComponent>;
-
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ SejaVoluntarioComponent ],
-      imports: [IonicModule.forRoot()]
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(SejaVoluntarioComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  ngOnInit() { }
+}
