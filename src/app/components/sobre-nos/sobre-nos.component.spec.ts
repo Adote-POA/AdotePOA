@@ -1,24 +1,23 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent, IonIcon } from '@ionic/angular/standalone';
+import { HeaderComponent } from '../header/header.component';
+import { addIcons } from "ionicons";
+import { logoFacebook, logoInstagram, logoWhatsapp } from 'ionicons/icons';
 
-import { SobreNosComponent } from './sobre-nos.component';
+@Component({
+  standalone: true,
+  selector: 'app-sobre-nos',
+  templateUrl: './sobre-nos.component.html',
+  styleUrls: ['./sobre-nos.component.scss'],
+  imports: [IonIcon, HeaderComponent, IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent],
+})
+export class SobreNosComponent implements OnInit {
 
-describe('SobreNosComponent', () => {
-  let component: SobreNosComponent;
-  let fixture: ComponentFixture<SobreNosComponent>;
+  constructor() {
+    // Registra os ícones específicos para uso no template
+    addIcons({ logoWhatsapp, logoFacebook, logoInstagram });
+  }
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ SobreNosComponent ],
-      imports: [IonicModule.forRoot()]
-    }).compileComponents();
+  ngOnInit() { }
 
-    fixture = TestBed.createComponent(SobreNosComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+}

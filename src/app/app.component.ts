@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import {IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterOutlet, IonRouterLink } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { homeOutline, closeOutline, pawOutline,logInOutline, personAddOutline, peopleOutline } from 'ionicons/icons';
+import { homeOutline, closeOutline, pawOutline,logInOutline, personAddOutline, peopleOutline, arrowBackOutline, logoWhatsapp, logoFacebook, logoInstagram } from 'ionicons/icons';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +21,6 @@ export class AppComponent {
     { title: 'Sobre Nós', url: '/sobre-nos', icon: 'people-outline' },
   ];
   constructor() {
-    addIcons({homeOutline, closeOutline, pawOutline,logInOutline, personAddOutline, peopleOutline});
+    addIcons({closeOutline});
   }
 }
