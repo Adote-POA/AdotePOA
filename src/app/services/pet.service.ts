@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Pet } from '../models/pet';
-import { collection, collectionData, doc, Firestore, getDoc, getDocs, query, where } from '@angular/fire/firestore';
+import { collection, collectionData, doc, Firestore, getDoc, getDocs, query, where, deleteDoc } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +22,11 @@ export class PetService {
     const docSnap = await getDoc(docRef);
     console.log(docSnap.data());
     return docSnap.data() as Promise<Pet>;
+  }
+
+  async deletePet(id: string): Promise<void> {
+    const docRef = doc(this.firestore, "pets", id);
+    await deleteDoc(docRef);
   }
 
   async getPetsByPorte(portes: string[]): Promise<Pet[]> {

@@ -4,13 +4,23 @@
 <ion-content [fullscreen]="true">
   <h1 class="l">Login</h1>
 
-  <div class="container">
-    <ion-input label="Usuario" labelPlacement="floating" fill="solid" placeholder=""></ion-input>
-    <br />
-    <ion-input type="password" label="Senha" label-placement="floating" fill="solid">
-      
-    </ion-input>
-    <!-- <ion-input label="Senha" label-placement="floating" fill="outline" placeholder=""></ion-input> -->
-    <ion-button class="btn-login">OK</ion-button>
-  </div>
+  @if (errorMessage){
+    <div>{{ errorMessage }}</div>
+  }
+
+  <form [formGroup]="form" (ngSubmit)="onsubmit()">
+    <section class="container">
+      <div><ion-input label="Usuario" type="email" labelPlacement="floating" fill="solid"
+          formControlName="email" required></ion-input>
+      </div>
+      <br />
+      <div>
+        <ion-input type="password"  label="Senha" label-placement="floating" fill="solid"
+          formControlName="password" required></ion-input>
+      </div>
+      <div>
+          <ion-button class="btn-login" type="submit">OK</ion-button>
+      </div>
+    </section>
+  </form>
 </ion-content>

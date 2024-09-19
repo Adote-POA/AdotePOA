@@ -3,11 +3,13 @@
 </app-header>
 
 <ion-content [fullscreen]="true">
+  <!-- BOTÃO FILTRAR -->
   <ion-fab id="open-modal" slot="fixed" vertical="top" horizontal="end" [edge]="true">
     <ion-fab-button>
       <ion-icon name="filter"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+  <!-- MODAL SELECIONAR PORTE -->
   <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
     <ng-template>
       <div class="block">
@@ -22,10 +24,10 @@
           <ion-checkbox (ionChange)="updatePortes($event.detail)" value="PP"
             [checked]="portes.includes('PP')">PP</ion-checkbox>
         </div>
-
       </div>
     </ng-template>
   </ion-modal>
+  <!--LISTAGEM DE CARDS PETS-->
   <div class="home-container">
     @for (pet of pets; track $index) {
     <app-card-home [pet]="pet"></app-card-home>

@@ -5,6 +5,10 @@
     flex-direction: column;
 }
 
+ion-fab-button {
+    --background: #c5000f;
+}
+
 img {
     aspect-ratio: 1;
     object-fit: cover;
@@ -55,7 +59,7 @@ img {
     font-weight: 700;
     font-size: 1.3rem;
     margin-top: 5px;
-    color: #2e2d37
+    color: #2e2d37;
 }
 
 .caracteristicas-description h2 {
