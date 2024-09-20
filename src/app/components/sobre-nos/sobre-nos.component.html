@@ -1,16 +1,37 @@
+<!-- Adcionei o app Header -->
 <app-header>
-  
 </app-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Sobre Nós</ion-title>
-    </ion-toolbar>
-  </ion-header> 
+  <div class="container">
+    <!-- Acho desnecessário essa logo, pois ela já está no app-header, mas se quiser deixar
+     é só descomentar, se não pode apagar -->
+    <!-- <div class="logo">
+      <img src="../../../assets/icon/logo.png" alt="Logo AdotePoa"> 
+    </div> -->
 
-  <div id="container">
-    <strong class="capitalize">Sobre Nós</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <section class="sobre-nos">
+      <h1>Sobre Nós - AdotePoa</h1>
+      <p>A AdotePoa é uma ONG fundada em 2018, em Porto Alegre, dedicada a promover a adoção responsável de animais e
+        garantir o bem-estar de cães e gatos resgatados.</p>
+      <p>Nosso principal canal de comunicação é o Instagram (&#64;adotepoa), e, em breve, lançaremos um aplicativo que
+        facilitará a adoção e a doação de produtos, além de conectar a comunidade com nossos projetos e eventos.</p>
+      <p>Nossa missão é transformar vidas, proporcionando novas oportunidades para os animais encontrarem lares
+        amorosos
+        e engajando voluntários na nossa causa. Junte-se a nós e ajude a fazer a diferença!</p>
+      <p class="contact">Pix e-mail: <a href="mailto:projeto.adotepoa&#64;gmail.com">projeto.adotepoa&#64;gmail.com</a>
+      </p>
+    </section>
+
+    <div class="icons">
+      <a [href]="'https://wa.me/5554996888777?text=Olá%2C%20tudo%20bem%3F'" target="_blank">
+        <ion-icon name="logo-whatsapp"></ion-icon>
+      </a>
+      <a href="https://facebook.com/yourfacebooklink" target="_blank">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </a>
+      <a href="https://www.instagram.com/adotepoa?igsh=dmxsbWg1eGVobjFl" target="_blank">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </a>
+    </div>
   </div>
 </ion-content>

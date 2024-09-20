@@ -3,7 +3,19 @@
 </app-header>
 
 <ion-content [fullscreen]="true">
+
   @if (pet) {
+  <!-- BOTÃO EXCLUIR -->
+  <ion-fab id="present-alert" slot="fixed" vertical="top" horizontal="end" [edge]="true">
+    <ion-fab-button>
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <!-- ALERT EXCLUIR PET -->
+  <ion-alert trigger="present-alert" [header]="'Excluir o perfil do(a) ' + pet.nome" [buttons]="alertButtons">
+
+  </ion-alert>
+  <!-- CONTAINER COM A IMG E INFORMAÇÕES DO PET -->
   <div class="container">
     <img alt="pet" src={{pet.img}} />
     <div class="pet-name">{{pet.nome}}</div>
@@ -38,7 +50,6 @@
             }@else {
             <p>Incompletas</p>
             }
-
           </div>
           <div>
             <h2>Porte</h2>
@@ -51,6 +62,7 @@
         <p>{{pet.descricao}}</p>
       </div>
     </div>
+    <!-- BOTÃO ENTRAR EM CONTATO -->
     <ion-button [href]="'https://wa.me/5551998796557?text=Estou%20interessado(a)%20em%20adotar%20o(a)%20'+pet.nome"
       target="_blank" shape="round" color="secondary" strong="true">
       ENTRAR EM CONTATO
