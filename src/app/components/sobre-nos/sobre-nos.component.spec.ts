@@ -14,7 +14,6 @@ import { logoFacebook, logoInstagram, logoWhatsapp } from 'ionicons/icons';
 export class SobreNosComponent implements OnInit {
 
   constructor() {
-    // Registra os ícones específicos para uso no template
     addIcons({ logoWhatsapp, logoFacebook, logoInstagram });
   }
 
