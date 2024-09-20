@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import {
   IonTitle,
@@ -15,7 +15,7 @@ import { finalize } from 'rxjs';
 import { Pet } from 'src/app/models/pet';
 import { PetService } from 'src/app/services/pet.service';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 
 
@@ -35,7 +35,7 @@ import {Router} from '@angular/router';
     IonMenuButton,
     IonTitle,
     IonContent,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
   ],
 })
@@ -72,11 +72,11 @@ export class CadastrarAnimalComponent {
     };
     reader.readAsDataURL(this.fileToUpload);
   }
-  constructor() {}
+  constructor() { }
 
-  onSubmit(){
-    //novoPet:Pet = this.petForm.value as Pet;
-    this.petService.newPet(this.petForm.value);
+  onSubmit() {
+    let novoPet: Pet = this.petForm.value as Pet;
+    this.petService.newPet(novoPet);
     this._router.navigate([''])
   }
 }
