@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 import {IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterOutlet, IonRouterLink } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { homeOutline, closeOutline, pawOutline,logInOutline, personAddOutline, peopleOutline } from 'ionicons/icons';
+import { closeOutline } from 'ionicons/icons';
 import { AuthService } from './services/auth.service';
 import { inject } from '@angular/core';
 
@@ -18,7 +18,6 @@ import { inject } from '@angular/core';
 
 export class AppComponent implements OnInit{
   authService = inject(AuthService);
-  //http = inject(HttpClient);
   public appPages = [
     { title: 'Página Inicial', url: '', icon: 'home-outline' },
     { title: 'Cadastrar Animal', url: '/cadastrar-animal', icon: 'paw-outline' },
@@ -28,6 +27,7 @@ export class AppComponent implements OnInit{
     
   ];
 
+  //monitora o estado de autentificação do usuário
   ngOnInit() : void{
     this.authService.user$.subscribe((user) =>{
       if(user){

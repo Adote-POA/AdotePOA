@@ -32,8 +32,4 @@ export const routes: Routes = [
     path: 'informacoes-pet/:petId',
     component: InformacoesPetComponent
   },
-  {
-    path: 'login',
-    component: LoginComponent,
-  },
 ];

@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router, RouterModule } from '@angular/router';
-import { login } from 'src/app/models/login';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -18,40 +17,42 @@ import { HttpClient } from '@angular/common/http';
   imports: [CommonModule, FormsModule, IonButton, IonInput, HeaderComponent, IonIcon, IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent, IonInputPasswordToggle, ReactiveFormsModule],
 })
 
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
+  //injeção de dependencias para interface
   fb = inject(FormBuilder);
   http = inject(HttpClient);
   router = inject(Router);
-  authService  = inject(AuthService);
+  authService = inject(AuthService);
 
 
-   constructor() {
+  constructor() {
     addIcons({});
   }
 
+  //criação de formulario utilizando FormBuilder
   form = this.fb.nonNullable.group({
-    email: ['', Validators.required],    
+    email: ['', Validators.required],
     password: ['', Validators.required],
   })
 
+  //armazena msg de erro
   errorMessage: string | null = null;
 
-
-  onsubmit():void{
+  //autentificação e direcionamento para home
+  onsubmit(): void {
     console.log("login");
-     const rawForm = this.form.getRawValue();
-     this.authService
-       .login(rawForm.email, rawForm.password)
-       .subscribe({
-         next: () => {
-           this.router.navigateByUrl('/');
-         }
+    const rawForm = this.form.getRawValue();
+    this.authService
+      .login(rawForm.email, rawForm.password)
+      .subscribe({
+        next: () => {
+          this.router.navigateByUrl('/');
+        }
       })
-      
   }
 
   ngOnInit() {
-  console.log("login");
+    console.log("login");//log para indicar se foi inicializado
   }
 
 }
