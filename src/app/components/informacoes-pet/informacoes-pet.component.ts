@@ -39,10 +39,9 @@ export class InformacoesPetComponent implements OnInit {
     {
       text: 'Excluir',
       role: 'confirm',
-      handler: () => {
-        this.petService.deletePet(this.petId);
+      handler: async () => {
+        await this.petService.deletePet(this.petId);
         this._router.navigate([''])
-
       },
     },
   ];

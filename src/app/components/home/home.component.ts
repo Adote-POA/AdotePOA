@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent, IonSearchbar, IonButton, IonIcon, IonFab, IonFabButton, IonModal, IonCheckbox } from '@ionic/angular/standalone';
 import { HeaderComponent } from '../header/header.component';
 import { CardHomeComponent } from "../card-home/card-home.component";
@@ -18,7 +18,7 @@ interface CheckboxChangeEventDetail<T = any> {
   imports: [IonCheckbox, IonModal, IonFabButton, IonFab, IonIcon, IonButton, IonSearchbar, HeaderComponent, IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent, CardHomeComponent],
 })
 
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   // VARIAVÉIS DA CLASSE HOME
   pets: Pet[] = [];
   portes: string[] = [];
@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
 
   }
   //CHAMA O SERVICE PARA BUSCAR OS PETS
-  ngOnInit() {
+  ionViewWillEnter() {
     this.petService.getPets().then((dado) => {
       this.pets = dado;
     });
