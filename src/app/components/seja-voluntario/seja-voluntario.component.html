@@ -5,23 +5,31 @@
     <div class="form-container">
       <h2>SEJA VOLUNTÁRIO</h2>
 
-      <form action="https://formsubmit.co/neisguilherme@gmail.com" method="POST">
+      <form [formGroup]="voluntaryForm" (ngSubmit)="onSubmit()">
         <ion-item>
           <ion-label position="stacked">Nome:</ion-label>
-          <ion-input type="text" name="name" placeholder="Digite seu nome" required></ion-input>
+          <ion-input type="text" name="nome" formControlName="nome" placeholder="Digite seu nome" required></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label position="stacked">Telefone:</ion-label>
-          <ion-input type="tel" name="phone" placeholder="Digite seu telefone" required></ion-input>
+          <ion-input type="tel" name="telefone" formControlName="telefone" placeholder="Digite seu telefone"
+            required></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label position="stacked">E-mail:</ion-label>
-          <ion-input type="email" name="email" placeholder="Digite seu e-mail" required></ion-input>
+          <ion-input type="email" name="email" formControlName="email" placeholder="Digite seu e-mail"
+            required></ion-input>
         </ion-item>
 
-        <ion-button type="submit" shape="round" expand="block" color="secondary">Enviar</ion-button>
+        <ion-button type="submit" shape="round" expand="block" color="secondary" [disabled]="isLoading">
+          @if (isLoading) {
+          Enviando...
+          } @else {
+          Enviar
+          }
+        </ion-button>
         <input type="hidden" name="_subject" value="Novo Contato!">
         <input type="text" name="_honey" style="display: none;">
         <input type="hidden" name="_captcha" value="false">
