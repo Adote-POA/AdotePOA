@@ -11,7 +11,6 @@ import { Pet } from 'src/app/models/pet';
   imports: [RouterLink, IonCard, IonCardHeader, IonCardTitle]
 })
 export class CardHomeComponent implements OnInit {
-  // ATRIBUTOS DO CARD
   @Input() pet!: Pet;
 
   constructor() { }

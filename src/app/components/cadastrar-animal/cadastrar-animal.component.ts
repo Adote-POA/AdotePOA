@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import {
   IonTitle,
@@ -8,10 +8,11 @@ import {
   IonMenuButton,
   IonContent,
   IonInput,
+  IonSelect,
+  IonSelectOption,
+  IonButton, IonText
 } from '@ionic/angular/standalone';
-import { addIcons } from 'ionicons';
 import { CommonModule } from '@angular/common';
-import { finalize } from 'rxjs';
 import { Pet } from 'src/app/models/pet';
 import { PetService } from 'src/app/services/pet.service';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -25,7 +26,8 @@ import { Router } from '@angular/router';
   selector: 'app-cadastrar-animal',
   templateUrl: './cadastrar-animal.component.html',
   styleUrls: ['./cadastrar-animal.component.scss'],
-  imports: [
+  imports: [IonText,
+    IonButton,
     HeaderComponent,
     CommonModule,
     IonInput,
@@ -37,6 +39,8 @@ import { Router } from '@angular/router';
     IonContent,
     FormsModule,
     ReactiveFormsModule,
+    IonSelect,
+    IonSelectOption
   ],
 })
 
@@ -44,8 +48,10 @@ import { Router } from '@angular/router';
 export class CadastrarAnimalComponent {
   fileToUpload: any;
   imageUrl: any;
+  errorMessage: string | null = null;
   petService = inject(PetService);
   _router = inject(Router);
+  isLoading: boolean = false;
 
   petForm = new FormGroup({
     nome: new FormControl(''),
@@ -54,7 +60,7 @@ export class CadastrarAnimalComponent {
     pelagem: new FormControl(''),
     vacinas: new FormControl(true),
     temperamento: new FormControl(''),
-    porte: new FormControl(''),
+    porte: new FormControl('M'),
     descricao: new FormControl(''),
     endereco: new FormControl(''),
   });
@@ -74,9 +80,25 @@ export class CadastrarAnimalComponent {
   }
   constructor() { }
 
-  onSubmit() {
+  async onSubmit() {
+    this.isLoading = true;
+    this.errorMessage = null;
+    if (!this.petForm.valid || this.fileToUpload == null) {
+      this.errorMessage = "Há campos a serem preenchidos!";
+      this.isLoading = false;
+      return;
+    }
     let novoPet: Pet = this.petForm.value as Pet;
-    this.petService.newPet(novoPet);
-    this._router.navigate([''])
+    this.petService.newPet(novoPet, this.fileToUpload).then(() => {
+      this.petForm.reset();
+      this.fileToUpload = null;
+      this.imageUrl = null;
+      this._router.navigate(['']);
+    }).catch(() => {
+      this.errorMessage = "Falha ao cadastrar novo Pet!";
+    }).finally(() => {
+      this.isLoading = false;
+    })
+
   }
 }

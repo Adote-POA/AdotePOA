@@ -5,7 +5,8 @@ import { LoginComponent } from './components/login/login.component';
 import { SejaVoluntarioComponent } from './components/seja-voluntario/seja-voluntario.component';
 import { SobreNosComponent } from './components/sobre-nos/sobre-nos.component';
 import { InformacoesPetComponent } from './components/informacoes-pet/informacoes-pet.component';
-
+import { authGuard, noAuthGuard } from './guard/auth.guard';
+// AQUI É ONDE DECLARA-SE AS ROTAS E SEUS COMPONENTS
 export const routes: Routes = [
   {
     path: '',
@@ -14,11 +15,13 @@ export const routes: Routes = [
   },
   {
     path: 'cadastrar-animal',
-    component: CadastrarAnimalComponent
+    component: CadastrarAnimalComponent,
+    canActivate: [authGuard],
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [noAuthGuard],
   },
   {
     path: 'seja-voluntario',

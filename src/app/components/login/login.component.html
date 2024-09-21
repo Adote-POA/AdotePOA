@@ -4,22 +4,22 @@
 <ion-content [fullscreen]="true">
   <h1 class="l">Login</h1>
 
-  @if (errorMessage){
-    <div>{{ errorMessage }}</div>
-  }
 
   <form [formGroup]="form" (ngSubmit)="onsubmit()">
     <section class="container">
-      <div><ion-input label="Usuario" type="email" labelPlacement="floating" fill="solid"
-          formControlName="email" required></ion-input>
+      @if (errorMessage){
+      <div>{{ errorMessage }}</div>
+      }
+      <div><ion-input label="Usuario" type="email" labelPlacement="floating" fill="solid" formControlName="email"
+          required></ion-input>
       </div>
       <br />
       <div>
-        <ion-input type="password"  label="Senha" label-placement="floating" fill="solid"
-          formControlName="password" required></ion-input>
+        <ion-input type="password" label="Senha" label-placement="floating" fill="solid" formControlName="password"
+          required></ion-input>
       </div>
       <div>
-          <ion-button class="btn-login" type="submit">OK</ion-button>
+        <ion-button class="btn-login" type="submit">OK</ion-button>
       </div>
     </section>
   </form>

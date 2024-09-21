@@ -1,15 +1,21 @@
-:host{
+:host {
     width: 75%;
+    max-width: 400px;
     display: flex;
 }
-ion-card{
+
+ion-card {
     border-radius: 10px;
+    width: 100%;
 }
-img{
+
+img {
     aspect-ratio: 1;
     object-fit: cover;
-  }
-ion-card-title{
+    width: 100%;
+}
+
+ion-card-title {
     font-size: 1.5rem;
     font-weight: 700;
 }

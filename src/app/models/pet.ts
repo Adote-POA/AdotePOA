@@ -1,3 +1,4 @@
+// INTERFACE PET
 export interface Pet {
     //atributos
     id: string,
@@ -11,5 +12,6 @@ export interface Pet {
     porte: string;
     descricao: string;
     endereco: string;
+    dataCriacao: Date;
 }
 

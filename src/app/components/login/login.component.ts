@@ -5,7 +5,7 @@ import { HeaderComponent } from '../header/header.component';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { Router, RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -40,19 +40,23 @@ export class LoginComponent implements OnInit {
 
   //autentificação e direcionamento para home
   onsubmit(): void {
-    console.log("login");
     const rawForm = this.form.getRawValue();
     this.authService
       .login(rawForm.email, rawForm.password)
       .subscribe({
         next: () => {
+          this.form.reset();
+          this.errorMessage = null;
           this.router.navigateByUrl('/');
+        },
+        error: (err) => {
+          this.errorMessage = "E-mail ou Senha inválidos!";
         }
       })
   }
 
   ngOnInit() {
-    console.log("login");//log para indicar se foi inicializado
+
   }
 
 }

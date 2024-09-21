@@ -39,7 +39,10 @@
           </li>
           <li>
             <label for="vacinas">Vacinas:</label>
-            <input type="text" id="vacinas" name="vacinas" formControlName="vacinas" required>
+            <ion-select aria-label="Vacinas" [value]="true" formControlName="vacinas" required>
+              <ion-select-option [value]="true">Completas</ion-select-option>
+              <ion-select-option [value]="false">Incompletas</ion-select-option>
+            </ion-select>
           </li>
           <li>
             <label for="temperamento">Temperamento:</label>
@@ -47,7 +50,12 @@
           </li>
           <li>
             <label for="porte">Porte:</label>
-            <input type="text" id="porte" name="porte" formControlName="porte" required>
+            <ion-select aria-label="Porte" value="M" formControlName="porte" required>
+              <ion-select-option value="G">G</ion-select-option>
+              <ion-select-option value="M">M</ion-select-option>
+              <ion-select-option value="P">P</ion-select-option>
+              <ion-select-option value="PP">PP</ion-select-option>
+            </ion-select>
           </li>
           <li>
             <label for="descriçao">Descrição:</label>
@@ -59,9 +67,13 @@
           </li>
 
         </ul>
+        @if (errorMessage){
+        <ion-text color="danger">
+          {{ errorMessage }}
+        </ion-text>
+        }
 
-        <button ion-button block color="primary" type="submit"
-          style="background-color: #71cc7d; color: #fff;">Publicar</button>
+        <ion-button type="submit" color="secondary" [disabled]="isLoading">Publicar</ion-button>
       </div>
     </form>
   </div>

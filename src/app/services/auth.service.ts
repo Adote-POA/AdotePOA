@@ -1,6 +1,5 @@
-import { inject, Injectable, signal  } from '@angular/core';
-import { Auth, user } from '@angular/fire/auth';
-import { signInWithEmailAndPassword} from 'firebase/auth';
+import { inject, Injectable, signal } from '@angular/core';
+import { Auth, user, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { Observable, from } from 'rxjs';
 import { UserInterface } from '../user.interface';
 
@@ -21,6 +20,15 @@ export class AuthService {
     ).then(() => { });
     return from(promise);
   }
+
+  isAuthenticated() {
+    return !!this.currentUserSig();
+  }
+
+  logOut() {
+    this.firebaseAuth.signOut();
+  }
+
 }
 
 

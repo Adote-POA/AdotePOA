@@ -1,11 +1,8 @@
 # Requisitos para rodar aplicação
 - Node: versão v20.17.0
-- Angular CLI: versão 18
-  - comando de instalação: `npm install -g @angular/cli`
-- Ionic CLI: versão 7.2.0
-  - comando de instalação: `npm install -g @ionic/cli` 
 - Instale as dependências usando o comando: `npm install`
-- Rodando a aplicação: `ionic serve`
+- Rodando a aplicação: `npm start`
+- Após isso clicar na url indica para abrir no navegador usando `ctrl + click`, geralmente é `http://localhost:4200/`
   
 # Como criar novos componentes?
 - Comando: `ng g c components/nome-componente`

@@ -19,14 +19,15 @@ interface CheckboxChangeEventDetail<T = any> {
 })
 
 export class HomeComponent implements OnInit {
+  // VARIAVÉIS DA CLASSE HOME
   pets: Pet[] = [];
   portes: string[] = [];
   petService = inject(PetService);
-
+  // CONSTRUTOR DA CLASSE HOME, ONDE PASSO APENAS O ÍCONE DO FILTRO
   constructor() {
     addIcons({ filter });
   }
-
+  //MÉTODO QUE ATUALIZA A LISTA DE PORTES E FILTRA OS PETS
   updatePortes(event: CheckboxChangeEventDetail<any>) {
     if (event.checked) {
       this.portes.push(event.value);
@@ -38,15 +39,15 @@ export class HomeComponent implements OnInit {
         this.pets = dado;
       })
     } else {
-      this.petService.getPets().subscribe((dado) => {
+      this.petService.getPets().then((dado) => {
         this.pets = dado;
       });
     }
 
   }
-
+  //CHAMA O SERVICE PARA BUSCAR OS PETS
   ngOnInit() {
-    this.petService.getPets().subscribe((dado) => {
+    this.petService.getPets().then((dado) => {
       this.pets = dado;
     });
   }
