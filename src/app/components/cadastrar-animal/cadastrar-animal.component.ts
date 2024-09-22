@@ -65,30 +65,32 @@ export class CadastrarAnimalComponent {
     endereco: new FormControl(''),
   });
 
+  // Manipulação de arquivo 
   handleFileInput(event: Event) {
     const target = event.currentTarget as HTMLInputElement;
     let fileList: FileList | null = target.files;
     if (fileList == null) {
       return;
     }
-    this.fileToUpload = fileList.item(0);
+    this.fileToUpload = fileList.item(0); // Armazena o arquivo selecionado
     let reader = new FileReader();
     reader.onload = (event: any) => {
-      this.imageUrl = event.target.result;
+      this.imageUrl = event.target.result; // Carrega e armazena a URL da imagem
     };
-    reader.readAsDataURL(this.fileToUpload);
+    reader.readAsDataURL(this.fileToUpload);// Converte a imagem para URL
   }
   constructor() { }
-
+ 
+  // Envio do Formulário
   async onSubmit() {
-    this.isLoading = true;
+    this.isLoading = true; 
     this.errorMessage = null;
     if (!this.petForm.valid || this.fileToUpload == null) {
-      this.errorMessage = "Há campos a serem preenchidos!";
+      this.errorMessage = "Há campos a serem preenchidos!"; // Verifica se o formlário é válido
       this.isLoading = false;
       return;
     }
-    let novoPet: Pet = this.petForm.value as Pet;
+    let novoPet: Pet = this.petForm.value as Pet; // Cria o objeto pet
     this.petService.newPet(novoPet, this.fileToUpload).then(() => {
       this.petForm.reset();
       this.fileToUpload = null;
